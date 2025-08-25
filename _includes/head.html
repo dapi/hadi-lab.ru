@@ -1,0 +1,41 @@
+<!-- Site build date: {{ "now" | date: "%FT%T%z" }} -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tacit-css@1.9.1/dist/tacit-css.min.css"/>
+  <title>HADI-Мастерская: Трекшен гипотез для стартапов</title>
+  <meta name="keywords" content="HADI, гипотезы, стартапы">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  {% comment %}<meta name="keywords" content="css, html5, css framework"/>{% endcomment %}
+  {% comment %}<meta name="description" content="CSS Framework for Dummies"/>{% endcomment %}
+  {% comment %}<link rel="icon" type="image/png" href="./tacit_logo.png"/>{% endcomment %}
+
+  <!-- Begin SEO -->
+  {% seo %}
+  <!-- End SEO -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tacit-css@1.9.1/dist/tacit-css.min.css"/>
+  <link rel="stylesheet" href="{{ "/css/custom.css" | relative_url }}">
+  {% comment %}<link rel="stylesheet" type="text/css" href="/css/override.css">{% endcomment %}
+
+  {% feed_meta %}
+
+  {% if jekyll.environment == 'production' and site.google_analytics -%}
+  <!-- Begin Google Analytics -->
+  {% include google-analytics.html %}
+  <!-- End Google Analytics -->
+  {%- endif %}
+
+  <!-- Begin highlight.js support -->
+  {% comment %}<link rel="stylesheet" href="/js/highlightjs/styles/github.css">{% endcomment %}
+  {% comment %}<link rel="stylesheet" href="/js/highlightjs/styles/ssms.css" />{% endcomment %}
+
+  {% comment %}<script type="text/javascript" src="/js/highlightjs/highlight.min.js"></script>{% endcomment %}
+
+  {% comment %}<script type="text/javascript" src="/js/highlightjs/languages/plaintext.min.js"></script>{% endcomment %}
+  {% comment %}<script type="text/javascript" src="/js/highlightjs/languages/powershell.min.js"></script>{% endcomment %}
+  {% comment %}<script type="text/javascript" src="/js/highlightjs/languages/tsql.min.js"></script>{% endcomment %}
+
+  {% comment %}<script type="text/javascript"> hljs.highlightAll(); </script>{% endcomment %}
+  <!-- end highlight.js support -->
+</head>

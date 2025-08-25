@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+  {%- include head.html -%}
+  <body>
+    <section>
+      {%- if page.title -%}
+        <article style="padding-bottom: 0px; padding-top: 0px">
+          <h1>{{ page.title }}</h1>
+        </article>
+      {%- endif -%}
+
+      <article style="padding-bottom: 0px; padding-top: 0px">
+        {{ content }}
+      </article>
+      {%- include guide-index-footer.html -%}
+    </section>
+  </body>
+</html>

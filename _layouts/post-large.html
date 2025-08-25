@@ -1,0 +1,27 @@
+---
+layout: blank
+title: Руководство по HADI
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {%- include head.html -%}
+  <body>
+    <section style="width: auto">
+      <article style="padding-bottom: 0px; padding-top: 0px">
+        <h1>
+          <a href="/guide">Руководство по HADI</a>
+        </h1>
+      {% comment %}<nav>{% endcomment %}
+        {% comment %}<ul>{% endcomment %}
+          {% comment %}<li><a href="/guide">Оглавление</a></li>{% endcomment %}
+        {% comment %}</ul>{% endcomment %}
+      {% comment %}</nav>{% endcomment %}
+      </article>
+      <article style="padding-bottom: 0px; padding-top: 0px">
+        <h2>{{ page.subtitle }}</h2>
+        {{ content }}
+        {% include navlinks.html %}
+      </article>
+    </section>
+  </body>
+</html>

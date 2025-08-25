@@ -1,0 +1,20 @@
+<hr>
+<nav>
+  <ul>
+    <li>
+      {%- if page.previous.url -%}
+        <a href="{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; {{ page.previous.title }}</a>
+      {%- else -%}
+        <a href="/guide">&larr; Оглавление</a>
+      {%- endif -%}
+    </li>
+
+    <li style="float: right">
+      {%- if page.next.url -%}
+        <a href="{{ page.next.url }}" title="{{ page.next.title }}">{{ page.next.title }} &rarr;</a>
+      {%- else -%}
+        <a href="/">Трекшен гипотез &rarr;</a>
+      {%- endif -%}
+    </li>
+  </ul>
+</nav>
