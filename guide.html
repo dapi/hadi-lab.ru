@@ -9,13 +9,17 @@ title: Руководство по HADI
 
 <p>Это руководство по внедрению HADI-цикла для ускорения проверки бизнес-гипотез. Если вы устали строить «воздушные замки» и гадать, сработает ли ваша идея, этот гайд — для вас. </p>
 
-{%- for post in site.posts reversed -%}
-<h3>
-  <a class="post-link" href="{{ post.url | relative_url }}">
-    {{ post.title | escape }}
-  </a>
-</h3>
-{%- if site.show_excerpts -%}
-  {{ post.excerpt }}
-{%- endif -%}
-{%- endfor -%}
+<ul>
+  {%- for post in site.posts reversed -%}
+    <li>
+      <a class="post-link" href="{{ post.url | relative_url }}">
+        {{ post.title | escape }}
+      </a>
+    </li>
+    {%- if site.show_excerpts -%}
+      {{ post.excerpt }}
+    {%- endif -%}
+  {%- endfor -%}
+</ul>
+
+<i>Последние изменения: 22:52 25/08/2025</i>
