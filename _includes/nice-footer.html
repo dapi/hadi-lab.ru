@@ -10,7 +10,9 @@
   <nav>
     <ul>
       <li>&copy; <a href="https://pismenny.ru" target="_blank">pismenny.ru</a></li>
-      <li>Последнее обновление: {% last_modified_at %}</li>
+    </ul>
+    <ul>
+      <li><i>Последнее обновление: {{ site.posts.first.date }}</i></li>
     </ul>
   </nav>
 </footer>
