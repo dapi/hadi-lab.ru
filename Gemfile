@@ -35,3 +35,5 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 # gem "github-pages", group: :jekyll_plugins
 
 gem "github-pages", "~> 232"
+
+gem "jekyll-last-modified-at", "~> 1.3"
