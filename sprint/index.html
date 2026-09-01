@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="description" content="HADI Sprint AI — прототип планировщика быстрых проверок бизнес-гипотез.">
+  <title>HADI Sprint AI — проверь гипотезу за 24 часа</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <a class="brand" href="#top">HADI Lab <span>×</span> Sprint AI</a>
+      <span class="prototype-pill">Прототип · без отправки данных</span>
+    </header>
+
+    <section class="hero" id="top" aria-labelledby="page-title">
+      <p class="eyebrow">HADI-спринт для основателей</p>
+      <h1 id="page-title">Не обсуждай гипотезу.<br>Проверь её за 24 часа.</h1>
+      <p class="lede">Опиши продукт или вставь URL — сервис соберёт первый HADI-эксперимент: действие, данные, порог решения и стоп-условие.</p>
+      <div class="integrity"><strong>Это планировщик эксперимента, не валидатор рынка.</strong> Он не ищет клиентов, не принимает решения за вас и не заменяет реальные данные.</div>
+    </section>
+
+    <section class="workspace" aria-labelledby="brief-title">
+      <div class="step-label">01 · Контекст</div>
+      <h2 id="brief-title">Что хотите проверить?</h2>
+      <form id="planner-form" novalidate>
+        <label for="idea">URL продукта или описание идеи</label>
+        <textarea id="idea" name="idea" rows="5" maxlength="800" placeholder="Например: сервис, который помогает кофейням заранее выкупать остатки выпечки со скидкой" required></textarea>
+        <p class="field-help">Можно вставить URL. Он останется только в текущем окне браузера и никуда не отправляется.</p>
+        <fieldset>
+          <legend>Фокус цикла</legend>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="focus" value="demand" checked><span><b>Спрос</b><small>Нужна ли эта проблема и оффер?</small></span></label>
+            <label class="choice"><input type="radio" name="focus" value="activation"><span><b>Активация</b><small>Сделает ли человек первый шаг?</small></span></label>
+            <label class="choice"><input type="radio" name="focus" value="pricing"><span><b>Цена</b><small>Готовы ли платить за результат?</small></span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Сколько времени есть?</legend>
+          <div class="choice-grid compact">
+            <label class="choice"><input type="radio" name="horizon" value="24" checked><span><b>24 часа</b><small>один быстрый сигнал</small></span></label>
+            <label class="choice"><input type="radio" name="horizon" value="72"><span><b>72 часа</b><small>мини-спринт</small></span></label>
+            <label class="choice"><input type="radio" name="horizon" value="7d"><span><b>7 дней</b><small>несколько касаний</small></span></label>
+          </div>
+        </fieldset>
+        <p class="error" id="form-error" role="alert"></p>
+        <button class="primary" type="submit">Собрать HADI-карточку <span aria-hidden="true">→</span></button>
+      </form>
+    </section>
+
+    <section class="result hidden" id="result" aria-live="polite" aria-labelledby="result-title">
+      <div class="result-head"><div><p class="eyebrow">02 · Первый цикл</p><h2 id="result-title">Ваша HADI-карточка</h2></div><button class="text-button" id="restart" type="button">Изменить контекст</button></div>
+      <p class="context" id="context-output"></p>
+      <div class="hadi-grid">
+        <article class="card hypothesis"><span>H · Hypothesis</span><h3>Гипотеза</h3><p id="hypothesis-output"></p></article>
+        <article class="card action"><span>A · Action</span><h3>Действие</h3><p id="action-output"></p></article>
+        <article class="card data"><span>D · Data</span><h3>Данные</h3><p id="data-output"></p></article>
+        <article class="card insight"><span>I · Insight</span><h3>Инсайт</h3><p id="insight-output"></p></article>
+      </div>
+      <div class="decision-grid">
+        <div><span class="micro-label">Порог решения</span><p id="threshold-output"></p></div>
+        <div><span class="micro-label">Стоп-условие</span><p id="stop-output"></p></div>
+      </div>
+      <section class="execution" aria-labelledby="execution-title">
+        <p class="eyebrow">03 · Факт вместо ощущения</p><h2 id="execution-title">Закройте цикл</h2>
+        <div id="checklist" class="checklist"></div>
+        <label for="observation">Что вы реально увидели?</label>
+        <textarea id="observation" rows="3" maxlength="800" placeholder="Например: отправили 12 сообщений; 4 человека ответили, двое попросили прислать условия"></textarea>
+        <div class="execution-actions"><button class="secondary" id="evaluate" type="button">Сделать осторожный вывод</button><button class="text-button" id="download" type="button">Скачать отчёт .md</button></div>
+        <article class="verdict" id="verdict" hidden><span class="micro-label">Статус сигнала</span><h3 id="verdict-title"></h3><p id="verdict-body"></p><p class="next-cycle" id="next-cycle"></p></article>
+      </section>
+    </section>
+
+    <section class="how-it-works"><p class="eyebrow">Как это устроено</p><div><article><b>1</b><h3>Сформулируйте риск</h3><p>Не весь продукт, а предположение, которое может сделать работу бесполезной.</p></article><article><b>2</b><h3>Сделайте действие</h3><p>Минимальное действие с реальными людьми вместо исследования «вообще».</p></article><article><b>3</b><h3>Запишите факт</h3><p>Сигнал — не победа. Его нужно интерпретировать и выбрать следующий цикл.</p></article></div></section>
+  </main>
+  <footer>HADI Sprint AI · локальный прототип для планирования экспериментов · данные не сохраняются</footer>
+  <script src="app.js"></script>
+</body>
+</html>
